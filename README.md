@@ -1,5 +1,6 @@
 # Degree Planner
-An open source online platform that allows students to plan their 4-year college schedule
+An online platform that allows students to plan their 4-year college schedule
+Copyright 2015
 
 ### Running the application
 * Install Python Version 2.7 or higher (https://www.python.org/downloads/)
