@@ -1,5 +1,5 @@
 # Degree Planner
-An online platform that allows students to plan their 4-year college schedule
+An online platform that allows students to plan their entire college schedule
 Copyright 2015
 
 ### Running the application
