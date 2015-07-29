@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="span2" id="semester-tabs">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-stacked" role="tablist">
+            {% for i in range(9) %}
+            <li role="presentation"><a href="#semester{{i}}-tab" aria-controls="semester{{i}}"
+                                                      role="tab" data-toggle="tab">Semester {{i}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="span6" id="schedule">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            {% for i in range(9) %}
+                <div role="tabpanel" class="tab-pane fade" id="semester{{i}}-tab">
+                    <h3>Semester {{i}} Content Here</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="span4" id="plan">
+        <h3>Select your school and majors</h3>
+        <p>Insert form here</p>
+        <h3>Your default plan of study will go here</h3>
+        <p>Plan of Study</p>
+    </div>
+</div>
+<div class="row">
+    <div id="classes" class="span12">
+        <h3>Some boxes for classes will be loaded here.</h3>
+    </div>
+</div>

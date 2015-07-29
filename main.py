@@ -16,10 +16,11 @@
 #
 
 import webapp2
-from controllers import main
+from controllers import main, plan
 from config import *
 
 app = webapp2.WSGIApplication([
+    (PLAN_URI, plan.MainHandler),
     ('/', main.MainHandler)
 
 ], debug=DEBUG)
