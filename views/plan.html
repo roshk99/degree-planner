@@ -2,7 +2,7 @@
     <div class="span2" id="semester-tabs">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-stacked" role="tablist">
-            {% for i in range(9) %}
+            {% for i in range(semester_num) %}
             <li role="presentation"><a href="#semester{{i}}-tab" aria-controls="semester{{i}}"
                                                       role="tab" data-toggle="tab">Semester {{i}}</a></li>
             {% endfor %}
@@ -11,9 +11,15 @@
     <div class="span6" id="schedule">
         <!-- Tab panes -->
         <div class="tab-content">
-            {% for i in range(9) %}
+            {% for i in range(semester_num) %}
                 <div role="tabpanel" class="tab-pane fade" id="semester{{i}}-tab">
-                    <h3>Semester {{i}} Content Here</h3>
+                    <h3>Semester {{i}} Schedule </h3>
+                    <h4>Total Credits: <span class="text-success">0</span></h4>
+                    <div class="list-group semester-list" id="semester{{i}}-list">
+                        <div class="list-group-item placeholder">
+                            Placeholder Class
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>
@@ -27,6 +33,28 @@
 </div>
 <div class="row">
     <div id="classes" class="span12">
-        <h3>Some boxes for classes will be loaded here.</h3>
+        <!-- List with handle -->
+        <div id="classesList" class="list-group">
+            <div class="list-group-item placeholder">
+                Placeholder Class
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+                <span class="badge">3</span>
+                Class 1
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+                <span class="badge">4</span>
+                Class 2
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+                <span class="badge">1</span>
+                Class 3
+            </div>
+        </div>
     </div>
 </div>
+
+<script src="/static/js/dragging.js"></script>
