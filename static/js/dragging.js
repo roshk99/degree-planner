@@ -35,5 +35,5 @@ $('.semester-list').each(function() {
 });
 
 recalculate_credits = function(semester) {
-    console.log
+    console.log(semester);
 };
