@@ -15,9 +15,6 @@ handlers:
 - url: /static
   static_dir: static
 
-- url: /authenticate/.*
-  script: authentication.auth.app
-
 - url: .*
   script: main.app
 

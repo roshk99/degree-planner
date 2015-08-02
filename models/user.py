@@ -10,9 +10,9 @@ class User(db.Model):
     last_name = db.StringProperty(required=True)
     email = db.StringProperty(required=True)
     password = db.StringProperty(required=True)
-    university = db.StringProperty(required=True)
-    majors = db.ListProperty(str, required=True)
-    semesters = db.ListProperty(str, required=True)
+    university = db.StringProperty()
+    majors = db.ListProperty(str)
+    semesters = db.ListProperty(str)
 
     def to_json(self):
         return {'first_name': self.first_name, 'last_name': self.last_name, 'id': str(self.key()), 'email': self.email,
@@ -67,14 +67,19 @@ def create_user(user):
             first_name=user['first_name'],
             last_name=user['last_name'],
             email=user['email'],
-            password=user['password'],
-            university=user['university'],
-            majors=user['majors'],
-            semesters=user['semesters'])
+            password=user['password'])
         user.put()
-        return user
+        return user.to_json()
     else:
         return None
+
+
+def check_user(data):
+    query = User.gql('WHERE email=:1', data['email'])
+    for found_user in query:
+        if found_user.get_password() == data['password']:
+            return found_user.to_json()
+    return None
 
 
 def delete_user(user):

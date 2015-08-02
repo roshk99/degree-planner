@@ -16,11 +16,16 @@
 #
 
 import webapp2
-from controllers import main, plan
+from authentication import auth
+from controllers import main, plan, dashboard
 from config import *
 
 app = webapp2.WSGIApplication([
+    (REGISTER_URI, auth.RegisterResponseHandler),
+    (LOGIN_URI, auth.LoginResponseHandler),
+    (LOGOUT_URI, auth.LogoutResponseHandler),
     (PLAN_URI, plan.MainHandler),
+    (DASHBOARD_URI, dashboard.MainHandler),
+    (ERROR_URI, main.ErrorHandler),
     ('/', main.MainHandler)
-
 ], debug=DEBUG)
