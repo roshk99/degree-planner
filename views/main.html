@@ -51,6 +51,17 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="input-register-university" class="control-label col-sm-3">University:</label>
+                        <div class="col-sm-9">
+                            <select id="input-register-university" class="form-control">
+                                    <option value="Select a University" disabled selected>--Select an Election--</option>
+                                    {% for university in universities %}
+                                        <option value="{{university.id}}">{{university.name}}</option>
+                                    {% endfor %}
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="input-register-password" class="control-label col-sm-3">Password:</label>
                         <div class="col-sm-9">
                             <input id="input-register-password" class="form-control" type="password">
@@ -62,6 +73,7 @@
                             <input id="input-register-confirm-password" class="form-control" type="password">
                         </div>
                     </div>
+
                     <button id="register-button" class="btn btn-success">Register</button>
                 </form>
             </div>

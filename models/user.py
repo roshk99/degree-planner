@@ -10,14 +10,12 @@ class User(db.Model):
     last_name = db.StringProperty(required=True)
     email = db.StringProperty(required=True)
     password = db.StringProperty(required=True)
-    university = db.StringProperty()
+    university = db.StringProperty(required=True)
     majors = db.ListProperty(str)
-    semesters = db.ListProperty(str)
 
     def to_json(self):
         return {'first_name': self.first_name, 'last_name': self.last_name, 'id': str(self.key()), 'email': self.email,
-                'password': self.password, 'university': self.university, 'majors': self.majors,
-                'semesters': self.semesters}
+                'password': self.password, 'university': self.university, 'majors': self.majors}
 
     def get_id(self):
         return str(self.key())
@@ -40,8 +38,11 @@ class User(db.Model):
     def get_majors(self):
         return self.majors
 
-    def get_semesters(self):
-        return self.semesters
+    def set_university(self, university):
+        self.university = university
+
+    def set_majors(self, majors):
+        self.majors = majors
 
 
 def get_user(key):
@@ -67,7 +68,8 @@ def create_user(user):
             first_name=user['first_name'],
             last_name=user['last_name'],
             email=user['email'],
-            password=user['password'])
+            password=user['password'],
+            university=user['university'])
         user.put()
         return user.to_json()
     else:
@@ -80,6 +82,11 @@ def check_user(data):
         if found_user.get_password() == data['password']:
             return found_user.to_json()
     return None
+
+
+def set_majors(user, majors):
+    user.set_majors(majors)
+    user.put()
 
 
 def delete_user(user):

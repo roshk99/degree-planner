@@ -14,11 +14,14 @@ class Course(db.Model):
     prerequisites = db.ListProperty(str)
     corequisites = db.ListProperty(str)
     credits = db.FloatProperty(required=True)
+    fall = db.BooleanProperty(required=True)
+    spring = db.BooleanProperty(required=True)
 
     def to_json(self):
         return {'name': self.name, 'id': str(self.key()), 'description': self.description,
                 'number': self.number, 'subject_code': self.subject_code, 'prerequisites': self.prerequisites,
-                'corequisites': self.corequisites, 'credits': self.credits, 'university': self.university}
+                'corequisites': self.corequisites, 'credits': self.credits, 'university': self.university,
+                'fall': self.fall, 'spring': self.spring}
 
     def get_id(self):
         return str(self.key())
@@ -46,6 +49,12 @@ class Course(db.Model):
 
     def get_university(self):
         return self.university
+
+    def get_fall(self):
+        return self.fall
+
+    def get_spring(self):
+        return self.spring
 
 
 def get_course(key):
@@ -75,7 +84,9 @@ def create_course(course):
             prerequisites=course['prerequisites'],
             corequisites=course['corequisites'],
             credits=course['credits'],
-            university=course['university']
+            university=course['university'],
+            fall=course['fall'],
+            spring=course['spring']
         )
         course.put()
         return course

@@ -2,10 +2,13 @@ import webapp2
 import pages
 from config import *
 
+import models.university
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        view = pages.render_view(MAIN_URI)
+        universities = models.university.get_all_universities()
+        view = pages.render_view(MAIN_URI, {'universities': universities})
         pages.render_page(self, view)
 
 

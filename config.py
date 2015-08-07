@@ -1,5 +1,5 @@
 DEBUG = True
-SEMESTER_NUM = 2
+SEMESTER_NUM = 9
 CLASS_NUM = 5
 
 MAIN_URI = '/main'

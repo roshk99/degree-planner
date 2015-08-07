@@ -2,7 +2,7 @@
 Application specific authentication module.
 """
 
-import models.user
+import logging
 import webapp2
 import json
 
@@ -10,12 +10,20 @@ from gaesessions import get_current_session
 from config import *
 
 import models.user
+import models.semester
 
 
 class RegisterResponseHandler(webapp2.RequestHandler):
     def post(self):
         data = json.loads(self.request.get('data'))
         user = models.user.create_user(data)
+
+        user_model = models.user.get_user(user['id'])
+        for num in range(SEMESTER_NUM):
+            semester = models.semester.add_semester(user_model, num)
+            if not semester:
+                logging.info("There was an error creating semester number:" + num)
+                return self.redirect(ERROR_URI)
         if not user:
             self.response.out.write('This email is already in use')
         else:

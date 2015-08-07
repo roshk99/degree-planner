@@ -42,20 +42,19 @@ def get_semesters_for_user(user):
     return result
 
 
-def create_semester(user, semester):
+def add_semester(user, number):
     existing = get_semesters_for_user(user)
     name_list = []
     for existing_semester in existing:
         name_list.append(existing_semester['number'])
 
-    if semester['number'] not in name_list or not existing:
+    if number not in name_list or not existing:
         semester = Semester(
             user=user,
-            number=semester['number'],
-            courses=semester['courses']
+            number=number
         )
         semester.put()
-        return semester
+        return semester.to_json()
     else:
         return None
 
@@ -64,14 +63,14 @@ def delete_semester(semester):
     semester.delete()
 
 
-def update_classes(semester_id, courses):
+def update_courses(semester_id, courses):
     semester = get_semester(semester_id)
     semester.set_courses(courses)
     semester.put()
     return
 
 
-def clear_classes(semester_id):
+def clear_courses(semester_id):
     semester = get_semester(semester_id)
     semester.set_courses([])
     semester.put()

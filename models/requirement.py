@@ -47,7 +47,8 @@ def create_requirement(requirement, major_id):
     if (requirement['number'], requirement['courses']) not in name_list or not existing:
         requirement = Requirement(
             number=requirement['number'],
-            courses=requirement['coures']
+            major=major_id,
+            courses=requirement['courses']
         )
         requirement.put()
         return requirement

@@ -7,21 +7,16 @@ from google.appengine.ext import db
 
 class Major(db.Model):
     name = db.StringProperty(required=True)
-    requirements = db.StringProperty(required=True)
     university = db.StringProperty(required=True)
 
     def to_json(self):
-        return {'name': self.name, 'requirements': self.requirements, 'id': str(self.key()),
-                'university': self.university}
+        return {'name': self.name, 'id': str(self.key()), 'university': self.university}
 
     def get_id(self):
         return str(self.key())
 
     def get_name(self):
         return self.name
-
-    def get_requirements(self):
-        return self.requirements
 
     def get_university(self):
         return self.university
@@ -48,8 +43,7 @@ def create_major(major, university_id):
     if major['name'] not in name_list or not existing:
         major = Major(
             name=major['name'],
-            requirements=major['requirements'],
-            university=major['university']
+            university=university_id
         )
         major.put()
         return major
