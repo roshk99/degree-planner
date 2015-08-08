@@ -1,18 +1,22 @@
+var to_order, from_order;
+
 // List with handle
 Sortable.create(classesList, {
     sort: true,
     group: {
         name: 'class',
-        put: ['fall-semester', 'spring-semester', 'class']
+        put: ['semester', 'class']
     },
+    filter: '.placeholder',
     animation: 150,
     handle: '.panel-heading',
-    scroll: true
+    scroll: true,
+    draggable: ".list-group-item"
 });
 
-var sortable, recalculate_credits;
+var sortable, credits;
 $('.semester-list').each(function() {
-    sortable = new Sortable(this, {
+    sortable = Sortable.create(this, {
         sort: true,
         group: {
             name: 'semester',
@@ -20,16 +24,24 @@ $('.semester-list').each(function() {
         },
         animation: 150,
         handle: '.panel-heading',
+        filter: '.placeholder',
         scroll: true,
+        draggable: '.list-group-item',
 
-         // Element is dropped into the list from another list
-        onAdd: function (evt) {
-            console.log(this);
+        onAdd: function(evt) {
+            credits = 0;
+            $(evt.to).children().each(function() {
+                credits += parseFloat($(this).find('.badge').text());
+            });
+            $(evt.to).parent().find('.credits').text(credits);
         },
 
-        // Element is removed from the list into another list
-        onRemove: function (evt) {
-            console.log(this);
+        onRemove: function(evt) {
+            credits = 0;
+            $(evt.from).children().each(function() {
+                credits += parseFloat($(this).find('.badge').text());
+            });
+            $(evt.from).parent().find('.credits').text(credits);
         }
     });
 });

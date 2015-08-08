@@ -1,6 +1,7 @@
 import webapp2
 import pages
 import authentication.auth
+import csv
 
 from config import *
 
@@ -14,39 +15,24 @@ import models.requirement
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        # with open('./data/universities.csv', 'r') as csvfile:
+        #     spamreader = csv.reader(csvfile)
+        #     for row in spamreader:
+        #         print row
+        #         print ', '.join(row)
+
         user = authentication.auth.get_logged_in_user()
         if not user:
             self.redirect(ERROR_URI)
 
         university = models.university.get_university(user.get_university()).to_json()
-        # # # university_id = user.get_university()
-        # # # university = models.university.get_university(university_id)
-        # course = models.course.create_course({'name': 'Statics', 'description': 'Statics description', 'number': '211', 'subject_code': 'MECH',
-        #                 'prerequisites': [], 'corequisites': [], 'credits': 3.0, 'university': university['id'],
-        #                 'fall': True, 'spring': True}).to_json()
-        # major = models.major.create_major({'name': 'Mechanical Engineering'}, university['id']).to_json()
-        # requirement = models.requirement.create_requirement({'number': 1, 'courses': [course['id']]}, major['id']).to_json()
-        # semesters = models.semester.get_semesters_for_user(user.get_id())
-        # for semester in semesters:
-        #     if semester.to_json()['number'] == 0:
-        #         semester.set_courses([course])
-        # user.set_majors([major['id']])
-        # # user.set_university(university['id'])
-        # #user.set_university('ahJkZXZ-ZGVncmVlLXBsYW5uZXJyFwsSClVuaXZlcnNpdHkYgICAgIDAvwoM')
-
-        # semesters = models.semester.get_semesters_for_user(user)
-        # course = models.course.get_course('ahJkZXZ-ZGVncmVlLXBsYW5uZXJyEwsSBkNvdXJzZRiAgICAgKCkCQw').to_json()
-        # for semester in semesters:
-        #     if semester['number'] == 0:
-        #         models.semester.update_courses(semester['id'], [course['id']])
-
         semesters = models.semester.get_semesters_for_user(user)
+
         all_courses = {}
         for semester in semesters:
             courses = []
             for course_id in semester['courses']:
                 courses.append(models.course.get_course(course_id).to_json())
-            print courses
             all_courses[int(semester['number'])] = courses
 
         my_university = university['name']

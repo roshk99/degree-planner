@@ -59,11 +59,9 @@
 }
 
 #classesList {
-    height: 400px;
+    min-height: 400px;
     width: 100%;
-    float: left;
-    display:table;
-    box-shadow: 5px 5px 3px grey;
+    border: 2px solid;
 }
 
 #errorimage {

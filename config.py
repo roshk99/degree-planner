@@ -1,6 +1,7 @@
 DEBUG = True
-SEMESTER_NUM = 9
-CLASS_NUM = 5
+
+# DO NOT CHANGE
+SEMESTER_NUM = 11
 
 MAIN_URI = '/main'
 ERROR_URI = '/error'

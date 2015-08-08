@@ -5,11 +5,12 @@ Useful functions for evaluating if requirements, prerequisites, or corequisites 
 import re
 import models.requirement
 import models.course
+from config import *
 
 
 def evaluate_requirements(courses, requirements):
     """
-    :param courses: should be a list of length SEMESTER_NUM, where its elements are a list of courses
+    :param courses: should be a dictionary of length SEMESTER_NUM, where its elements are a list of courses
         (dictionary format) in that semester
     :param requirements: should be a list of requirements in dictionary format
     """
@@ -18,7 +19,8 @@ def evaluate_requirements(courses, requirements):
     not_met_requirements = []
 
     course_master = []
-    for semester in courses:
+    for i in range(SEMESTER_NUM):
+        semester = courses[i]
         for course in semester:
             course_master.append({'number': course['number'], 'subject_code': course['subject_code']})
 
@@ -36,10 +38,14 @@ def evaluate_requirements(courses, requirements):
             # Special case if class format is like 3XX
             else:
                 num_str = str(course['number'])
-                match_str = num_str[0] + '..'
+                if int(num_str[0]):
+                    match_str = num_str[0] + '..'
+                else:
+                    match_str = '...'
                 for my_course in course_master:
-                    if re.match(match_str, str(my_course['number'])):
-                        num += 1
+                    if my_course['subject_code'] == course['subject_code']:
+                        if re.match(match_str, str(my_course['number'])):
+                            num += 1
 
         if num >= number:
             met_requirements.append(requirement)
