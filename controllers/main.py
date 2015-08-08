@@ -7,6 +7,7 @@ import models.university
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        # models.university.create_university({'name': 'RPI'})
         universities = models.university.get_all_universities()
         view = pages.render_view(MAIN_URI, {'universities': universities})
         pages.render_page(self, view)
