@@ -33,10 +33,12 @@ def evaluate_requirements(courses, requirements):
 
         num = 0
         for course in course_list:
-            if course in course_master and not int(course['number']):
-                num += 1
-            # Special case if class format is like 3XX
+            print course
+            if int(course['number']):
+                if course in course_master:
+                    num += 1
             else:
+                # Special case if class format is like 3XX or XXX
                 num_str = str(course['number'])
                 if int(num_str[0]):
                     match_str = num_str[0] + '..'
@@ -57,24 +59,62 @@ def evaluate_requirements(courses, requirements):
 
 def evaluate_prerequisites(courses):
     """
-    :param courses: should be a list of length SEMESTER_NUM, where its elements are a list of courses
+    :param courses: should be a dictionary of length SEMESTER_NUM, where its elements are a list of courses
         (dictionary format) in that semester
     """
+
     prereqs = []
-    for semester in courses:
+    for i in range(SEMESTER_NUM):
+        semester = courses[i]
         for course in semester:
-            for prereq_id in course['prerequisites']:
-                prereq = models.course.get_course(prereq_id).to_json()
-                prereqs.append({'semester': semester['number'], 'course': course, 'prereq': prereq})
+            for prereq in course['prerequisites']:
+                prereqs.append({'semester': i, 'course': course, 'prereq': prereq})
 
     unmet_prereqs = []
     for prereq_dict in prereqs:
         prereq = prereq_dict['prereq']
+        course = prereq_dict['course']
         course_semester = prereq_dict['semester']
-        for semester in courses:
-            if prereq in semester:
-                num = semester['number']
-        if num >= course_semester or not num:
+        num = float('inf')
+        for i in range(SEMESTER_NUM):
+            semester = courses[i]
+            for semester_course in semester:
+                if prereq['id'] == semester_course['id']:
+                    num = i
+        if num >= course_semester:
             unmet_prereqs.append(course)
 
     return unmet_prereqs
+
+
+def evaluate_corequisites(courses):
+    """
+    :param courses: should be a dictionary of length SEMESTER_NUM, where its elements are a list of courses
+        (dictionary format) in that semester
+    """
+
+    coreqs = []
+    for i in range(SEMESTER_NUM):
+        semester = courses[i]
+        for course in semester:
+            for coreq in course['corequisites']:
+                coreqs.append({'semester': i, 'course': course, 'coreq': coreq})
+
+    unmet_coreqs = []
+    for coreq_dict in coreqs:
+        coreq = coreq_dict['coreq']
+        print 'Coreq', coreq['name']
+        course = coreq_dict['course']
+        print 'Course', course['name']
+        course_semester = coreq_dict['semester']
+        num = float('inf')
+        for i in range(SEMESTER_NUM):
+            semester = courses[i]
+            for semester_course in semester:
+                if coreq['id'] == semester_course['id']:
+                    num = i
+        print 'Num', num
+        if num != course_semester:
+            unmet_coreqs.append(course)
+
+    return unmet_coreqs

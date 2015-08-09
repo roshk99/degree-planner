@@ -4,9 +4,11 @@
 <div id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-        <h2>Classes</h2>
+        <button class="btn btn-primary" id="save-classes">Save Classes</button>
         <div id="notifications">
-            <h4>Notifications</h4>
+            {% for message in messages %}
+            <div class="alert alert-danger">{{message}}</div>
+            {% endfor %}
         </div>
         <div class="page-section" id="classes-section">
             <div class="list-group" id="classesList">
@@ -24,14 +26,14 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <span class="badge">{{course.credits}}</span>
-                                            {{course.subject_code}} {{course.number}} -
-                                            {% if course.fall and not course.spring %}
-                                                F
-                                            {% elif not course.fall and course.spring %}
-                                                S
-                                            {% else %}
-                                                F/S
-                                            {% endif %}
+                                        {{course.subject_code}} {{course.number}} -
+                                        {% if course.fall and not course.spring %}
+                                            F
+                                        {% elif not course.fall and course.spring %}
+                                            S
+                                        {% else %}
+                                            F/S
+                                        {% endif %}
                                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                                 </h4>
                             </div> <!-- /.panel-heading -->
@@ -111,14 +113,14 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <span class="badge">{{course.credits}}</span>
-                                                {{course.subject_code}} {{course.number}} -
-                                                {% if course.fall and not course.spring %}
-                                                    F
-                                                {% elif not course.fall and course.spring %}
-                                                    S
-                                                {% else %}
-                                                    F/S
-                                                {% endif %}
+                                            {{course.subject_code}} {{course.number}} -
+                                            {% if course.fall and not course.spring %}
+                                                F
+                                            {% elif not course.fall and course.spring %}
+                                                S
+                                            {% else %}
+                                                F/S
+                                            {% endif %}
                                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                                     </h4>
                                 </div> <!-- /.panel-heading -->
@@ -161,4 +163,4 @@ $("#menu-toggle").click(function(e) {
 });
 </script>
 
-<script src="/static/js/dragging.js"></script>
+<script src="/static/js/plan.js"></script>

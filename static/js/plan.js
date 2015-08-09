@@ -1,5 +1,3 @@
-var to_order, from_order;
-
 // List with handle
 Sortable.create(classesList, {
     sort: true,
@@ -68,6 +66,15 @@ $(function() {
 
     //collapse all classes
     $('.panel-body').slideUp();
+
+    //Calculate all credits
+    $('.semester-list').each(function() {
+        credits = 0.0;
+        $(this).children().each(function() {
+            credits += parseFloat($(this).find('.badge').text());
+        });
+        $(this).parent().find('.credits').text(credits);
+    });
 });
 
 // scroll function
@@ -94,4 +101,30 @@ $(document).on('click', '.panel-heading span.clickable', function(e){
 		$this.removeClass('panel-collapsed');
 		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
 	}
-})
+});
+
+$('#save-classes').on('click', function(e) {
+    e.preventDefault();
+    var semesters, number;
+    semesters = {};
+    $('.semester-list').each(function() {
+        number = parseInt(this.id.match(/\d+/)[0]);
+        semesters[number] = [];
+        $(this).children().each( function() {
+           semesters[number][semesters[number].length] = $(this).data('id');
+        });
+    });
+
+    return $.ajax({
+        url: '/plan',
+        type: 'POST',
+        data: {
+            'data': JSON.stringify(semesters)
+        },
+        success: function(data) {
+            window.location.reload();
+            console.log(data);
+
+        }
+    });
+});

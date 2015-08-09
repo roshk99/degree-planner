@@ -86,3 +86,7 @@
 .panel-heading {
     cursor: move;
 }
+
+.alert {
+    margin: 5px;
+}
