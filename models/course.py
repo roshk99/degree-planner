@@ -74,8 +74,6 @@ def create_course(course):
             description=course['description'],
             number=course['number'],
             subject_code=course['subject_code'],
-            prerequisites=course['prerequisites'],
-            corequisites=course['corequisites'],
             credits=course['credits'],
             university=course['university'],
             fall=course['fall'],

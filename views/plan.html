@@ -12,9 +12,9 @@
         </div>
         <div class="page-section" id="classes-section">
             <div class="list-group" id="classesList">
-            {% for course_set in all_courses %}
-                <div class="placeholder list-group-item"><h5>Need {{course_set | length}} of: </h5></div>
-                    {% for course in course_set %}
+            {% for course_dict in all_courses %}
+                <div class="placeholder list-group-item"><h5>Need {{course_dict['number']}} of: </h5></div>
+                    {% for course in course_dict['courses'] %}
                     {% if course.fall and not course.spring %}
                     <div class="list-group-item fall-class" data-id="{{course.id}}">
                     {% elif not course.fall and course.spring %}
