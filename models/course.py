@@ -19,9 +19,8 @@ class Course(db.Model):
 
     def to_json(self):
         return {'name': self.name, 'id': str(self.key()), 'description': self.description,
-                'number': self.number, 'subject_code': self.subject_code, 'prerequisites': self.prerequisites,
-                'corequisites': self.corequisites, 'credits': self.credits, 'university': self.university,
-                'fall': self.fall, 'spring': self.spring}
+                'number': self.number, 'subject_code': self.subject_code, 'credits': self.credits,
+                'university': self.university, 'fall': self.fall, 'spring': self.spring}
 
     def get_id(self):
         return str(self.key())
@@ -37,12 +36,6 @@ class Course(db.Model):
 
     def get_subject_code(self):
         return self.subject_code
-
-    def get_prerequisites(self):
-        return self.prerequisites
-
-    def get_corequisites(self):
-        return self.corequisites
 
     def get_credits(self):
         return self.credits

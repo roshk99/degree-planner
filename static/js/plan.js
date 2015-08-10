@@ -9,7 +9,7 @@ Sortable.create(classesList, {
     animation: 150,
     handle: '.panel-heading',
     scroll: true,
-    draggable: ".list-group-item"
+    draggable: '.list-group-item'
 });
 
 var sortable, credits;

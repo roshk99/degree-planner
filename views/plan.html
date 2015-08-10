@@ -7,7 +7,7 @@
         <button class="btn btn-primary" id="save-classes">Save Classes</button>
         <div id="notifications">
             {% for message in messages %}
-            <div class="alert alert-danger">{{message}}</div>
+            <div class="alert alert-danger small">{{message}}</div>
             {% endfor %}
         </div>
         <div class="page-section" id="classes-section">
@@ -43,18 +43,10 @@
                                 <p>Description: {{course.description}}</p>
                                 {% endif %}
                                 {% if course.prerequisites | length > 0 %}
-                                    <p>Prerequsites:
-                                    {% for prereq in course.prerequisites %}
-                                        {{prereq.subject_code}} {{prereq.number}},
-                                    {% endfor %}
-                                    </p>
+                                <p>Prerequsites: {{course.prerequisites}}</p>
                                 {% endif %}
                                 {% if course.corequisites | length > 0 %}
-                                    <p>Corequsites:
-                                    {% for coreq in course.corequisites %}
-                                        {{coreq.subject_code}} {{coreq.number}},
-                                    {% endfor %}
-                                    </p>
+                                <p>Corequsites: {{course.corequisites}}</p>
                                 {% endif %}
                             </div> <!-- /.panel-body -->
                         </div> <!-- /.panel-default -->
@@ -130,18 +122,10 @@
                                     <p>Description: {{course.description}}</p>
                                     {% endif %}
                                     {% if course.prerequisites | length > 0 %}
-                                        <p>Prerequsites:
-                                        {% for prereq in course.prerequisites %}
-                                            {{prereq.subject_code}} {{prereq.number}},
-                                        {% endfor %}
-                                        </p>
+                                    <p>Prerequsites: {{course.prerequisites}}</p>
                                     {% endif %}
                                     {% if course.corequisites | length > 0 %}
-                                        <p>Corequsites:
-                                        {% for coreq in course.corequisites %}
-                                            {{coreq.subject_code}} {{coreq.number}},
-                                        {% endfor %}
-                                        </p>
+                                    <p>Corequsites: {{course.corequisites}}</p>
                                     {% endif %}
                                 </div> <!-- /.panel-body -->
                             </div> <!-- /.panel-default -->

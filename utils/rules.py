@@ -5,6 +5,7 @@ Useful functions for evaluating if requirements, prerequisites, or corequisites 
 import re
 import models.requirement
 import models.course
+import models.requisite
 from config import *
 
 
@@ -33,7 +34,6 @@ def evaluate_requirements(courses, requirements):
 
         num = 0
         for course in course_list:
-            print course
             if int(course['number']):
                 if course in course_master:
                     num += 1
@@ -57,64 +57,34 @@ def evaluate_requirements(courses, requirements):
     return {'met': met_requirements, 'not_met': not_met_requirements}
 
 
-def evaluate_prerequisites(courses):
+def evaluate_requisites(courses):
     """
     :param courses: should be a dictionary of length SEMESTER_NUM, where its elements are a list of courses
         (dictionary format) in that semester
     """
-
-    prereqs = []
+    master_dict = {}  # Should have the course id mapped to the semester taken
     for i in range(SEMESTER_NUM):
         semester = courses[i]
         for course in semester:
-            for prereq in course['prerequisites']:
-                prereqs.append({'semester': i, 'course': course, 'prereq': prereq})
+            master_dict[course['id']] = i
 
-    unmet_prereqs = []
-    for prereq_dict in prereqs:
-        prereq = prereq_dict['prereq']
-        course = prereq_dict['course']
-        course_semester = prereq_dict['semester']
-        num = float('inf')
-        for i in range(SEMESTER_NUM):
-            semester = courses[i]
-            for semester_course in semester:
-                if prereq['id'] == semester_course['id']:
-                    num = i
-        if num >= course_semester:
-            unmet_prereqs.append(course)
+    messages = []
+    for course_id, semester_num in master_dict.items():
+        requisites = models.requisite.get_requisites_for_course(course_id)
+        for requisite in requisites:
+            met = False
+            course_options = requisite['requisites']
+            for course in course_options:
+                if course in master_dict:
+                    if requisite['type'] == 'pre' and master_dict[course] < semester_num:
+                        met = True
+                    elif requisite['type'] == 'co' and master_dict[course] == semester_num:
+                        met = True
+            if not met and requisite['type'] == 'pre':
+                my_course = models.course.get_course(course_id).to_json()
+                messages.append(my_course['subject_code'] + ' ' + my_course['number'] + ' is missing prerequisites')
+            if not met and requisite['type'] == 'co':
+                my_course = models.course.get_course(course_id).to_json()
+                messages.append(my_course['subject_code'] + ' ' + my_course['number'] + ' is missing corequisites')
 
-    return unmet_prereqs
-
-
-def evaluate_corequisites(courses):
-    """
-    :param courses: should be a dictionary of length SEMESTER_NUM, where its elements are a list of courses
-        (dictionary format) in that semester
-    """
-
-    coreqs = []
-    for i in range(SEMESTER_NUM):
-        semester = courses[i]
-        for course in semester:
-            for coreq in course['corequisites']:
-                coreqs.append({'semester': i, 'course': course, 'coreq': coreq})
-
-    unmet_coreqs = []
-    for coreq_dict in coreqs:
-        coreq = coreq_dict['coreq']
-        print 'Coreq', coreq['name']
-        course = coreq_dict['course']
-        print 'Course', course['name']
-        course_semester = coreq_dict['semester']
-        num = float('inf')
-        for i in range(SEMESTER_NUM):
-            semester = courses[i]
-            for semester_course in semester:
-                if coreq['id'] == semester_course['id']:
-                    num = i
-        print 'Num', num
-        if num != course_semester:
-            unmet_coreqs.append(course)
-
-    return unmet_coreqs
+    return messages

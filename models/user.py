@@ -3,6 +3,8 @@ Model definition and functions for user.
 """
 
 from google.appengine.ext import db
+import uuid
+import hashlib
 
 
 class User(db.Model):
@@ -63,12 +65,14 @@ def create_user(user):
     for existing_users in existing:
         name_list.append(existing_users['email'])
 
+    salt = uuid.uuid4().hex
+
     if user['email'] not in name_list or not existing:
         user = User(
             first_name=user['first_name'],
             last_name=user['last_name'],
             email=user['email'],
-            password=user['password'],
+            password=hashlib.sha256(salt.encode() + user['password'].encode()).hexdigest() + ':' + salt,
             university=user['university'])
         user.put()
         return user.to_json()
@@ -78,10 +82,19 @@ def create_user(user):
 
 def check_user(data):
     query = User.gql('WHERE email=:1', data['email'])
-    for found_user in query:
-        if found_user.get_password() == data['password']:
-            return found_user.to_json()
-    return None
+    if query.count() == 0:
+        return None
+
+    for user in query:
+        found_user = user
+        hashed_password = found_user.get_password()
+    password, salt = hashed_password.split(':')
+    user_password = data['password']
+
+    if password == hashlib.sha256(salt.encode() + user_password.encode()).hexdigest():
+        return found_user.to_json()
+    else:
+        return None
 
 
 def set_majors(user, majors):
