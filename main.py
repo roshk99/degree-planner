@@ -26,6 +26,9 @@ app = webapp2.WSGIApplication([
     (LOGOUT_URI, auth.LogoutResponseHandler),
     (PLAN_URI, plan.MainHandler),
     (DASHBOARD_URI, dashboard.MainHandler),
+    (ADD_MAJOR_URI, dashboard.AddMajorHandler),
+    (CLEAR_MAJORS_URI, dashboard.ClearMajorsHandler),
+    (DELETE_ACCOUNT_URI, auth.DeleteAccountHandler),
     (ERROR_URI, main.ErrorHandler),
     ('/', main.MainHandler)
 ], debug=DEBUG)

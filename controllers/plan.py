@@ -21,7 +21,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = authentication.auth.get_logged_in_user()
         if not user:
-            self.redirect(ERROR_URI)
+            authentication.auth.redirect_to_login(self)
 
         semesters = models.semester.get_semesters_for_user(user)
         my_courses = {}
@@ -51,7 +51,7 @@ class MainHandler(webapp2.RequestHandler):
                 course = models.course.get_course(course_id).to_json()
                 course = utils.utils.requisites_as_text(course)
                 courses.append(course)
-            all_courses.append(courses)
+            all_courses.append({'number': requirement['number'], 'courses': courses})
         logging.info('All courses: %s', all_courses)
 
         messages = utils.rules.evaluate_requisites(my_courses)
@@ -65,7 +65,7 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         user = authentication.auth.get_logged_in_user()
         if not user:
-            self.redirect(ERROR_URI)
+            authentication.auth.redirect_to_login(self)
 
         data = json.loads(self.request.get('data'))
         logging.info('Save Classes Post: %s', data)

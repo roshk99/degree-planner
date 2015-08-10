@@ -68,6 +68,26 @@ class LogoutResponseHandler(webapp2.RequestHandler):
             self.response.out.write('You weren\'t logged in.')
 
 
+class DeleteAccountHandler(webapp2.RequestHandler):
+    def get(self):
+        user = get_logged_in_user()
+        if not user:
+            self.redirect(ERROR_URI)
+
+        session = get_current_session()
+        if 'id' in session:
+            session.terminate()
+            self.redirect('/')
+
+        # Delete all semesters
+        semesters = models.semester.get_semesters_for_user(user)
+        for semester in semesters:
+            semester_model = models.semester.get_semester(semester['id'])
+            models.semester.delete_semester(semester_model)
+
+        models.user.delete_user(user)
+
+
 def redirect_to_login(request_handler):
     """
     Requires the user to be logged in through NetID authentication.
@@ -75,7 +95,7 @@ def redirect_to_login(request_handler):
     Args:
         request_handler: webapp2 request handler of the user request
     """
-    request_handler.redirect(MAIN_URI, abort=True)
+    request_handler.redirect('/', abort=True)
 
 
 def get_logged_in_user():

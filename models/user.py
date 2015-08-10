@@ -46,6 +46,9 @@ class User(db.Model):
     def set_majors(self, majors):
         self.majors = majors
 
+    def clear_majors(self):
+        self.majors = []
+
 
 def get_user(key):
     return User.get(key)
@@ -97,8 +100,23 @@ def check_user(data):
         return None
 
 
-def set_majors(user, majors):
-    user.set_majors(majors)
+def add_major(user, major_id):
+    majors = user.get_majors()
+    print 'majors', majors
+    print 'major_id', major_id
+    if major_id in majors:
+        return None
+    else:
+        if len(majors) == 0:
+            user.set_majors([major_id])
+        else:
+            user.set_majors(majors.append(major_id))
+        user.put()
+        return major_id
+
+
+def clear_majors(user):
+    user.clear_majors()
     user.put()
 
 
