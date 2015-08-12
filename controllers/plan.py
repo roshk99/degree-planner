@@ -45,12 +45,15 @@ class MainHandler(webapp2.RequestHandler):
         logging.info('Requirements Eval: %s', requirements_eval)
 
         all_courses = []
+        course_master = []
         for requirement in requirements_eval['not_met']:
             courses = []
             for course_id in requirement['courses']:
                 course = models.course.get_course(course_id).to_json()
                 course = utils.utils.requisites_as_text(course)
-                courses.append(course)
+                if course not in course_master:
+                    course_master.append(course)
+                    courses.append(course)
             all_courses.append({'number': requirement['number'], 'courses': courses})
         logging.info('All courses: %s', all_courses)
 

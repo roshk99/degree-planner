@@ -6,6 +6,9 @@
     <div id="sidebar-wrapper">
         <button class="btn btn-primary" id="save-classes">Save Classes</button>
         <div id="notifications">
+            {% if messages | length == 0 %}
+            <div class="alert alert-success small">All prerequisites and corequisites fulfilled!</div>
+            {% endif %}
             {% for message in messages %}
             <div class="alert alert-danger small">{{message}}</div>
             {% endfor %}
@@ -43,10 +46,10 @@
                                 <p>Description: {{course.description}}</p>
                                 {% endif %}
                                 {% if course.prerequisites | length > 0 %}
-                                <p>Prerequsites: {{course.prerequisites}}</p>
+                                <p>Prerequisites: {{course.prerequisites}}</p>
                                 {% endif %}
                                 {% if course.corequisites | length > 0 %}
-                                <p>Corequsites: {{course.corequisites}}</p>
+                                <p>Corequisites: {{course.corequisites}}</p>
                                 {% endif %}
                             </div> <!-- /.panel-body -->
                         </div> <!-- /.panel-default -->
@@ -122,10 +125,10 @@
                                     <p>Description: {{course.description}}</p>
                                     {% endif %}
                                     {% if course.prerequisites | length > 0 %}
-                                    <p>Prerequsites: {{course.prerequisites}}</p>
+                                    <p>Prerequisites: {{course.prerequisites}}</p>
                                     {% endif %}
                                     {% if course.corequisites | length > 0 %}
-                                    <p>Corequsites: {{course.corequisites}}</p>
+                                    <p>Corequisites: {{course.corequisites}}</p>
                                     {% endif %}
                                 </div> <!-- /.panel-body -->
                             </div> <!-- /.panel-default -->

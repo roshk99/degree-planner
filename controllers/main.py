@@ -5,6 +5,7 @@ from config import *
 import models.university
 import utils.utils
 
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         universities = models.university.get_all_universities()
