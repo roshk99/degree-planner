@@ -16,7 +16,7 @@
 #
 
 import webapp2
-from authentication import auth
+from authentication import auth, cleanupsessions
 from controllers import main, plan, dashboard
 from config import *
 
@@ -30,5 +30,6 @@ app = webapp2.WSGIApplication([
     (CLEAR_MAJORS_URI, dashboard.ClearMajorsHandler),
     (DELETE_ACCOUNT_URI, auth.DeleteAccountHandler),
     (ERROR_URI, main.ErrorHandler),
+    ('/cleanupsessions', cleanupsessions.CleanupSessionsHandler),
     ('/', main.MainHandler)
 ], debug=DEBUG)

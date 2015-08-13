@@ -102,8 +102,6 @@ def check_user(data):
 
 def add_major(user, major_id):
     majors = user.get_majors()
-    print 'majors', majors
-    print 'major_id', major_id
     if major_id in majors:
         return None
     else:

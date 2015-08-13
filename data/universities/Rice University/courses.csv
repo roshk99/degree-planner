@@ -1,0 +1,113 @@
+Intro to Engineering Computation,,210,CAAM,,,3,F/S
+Matrix Analysis,,335,CAAM,,,3,F/S
+Matrix Analysis,,335,CAAM,,,4,F/S
+Differential Equations in Science and Engineering,,336,CAAM,,,3,F/S
+Freshman Chemistry Seminar,,110,CHEM,,,1,F/S
+General Chemistry I,,121,CHEM,,,3,F/S
+General Chemistry II,,122,CHEM,"(CHEM 121, CHEM 151)",,3,F/S
+Single Variable Calculus I,,101,MATH,,,3,F/S
+Single Variable Calculus II,,102,MATH,,,3,F/S
+Fundamental Theorem of Calculus ,,111,MATH,,,3,F/S
+Calculus and Its Applications,,112,MATH,,,3,F/S
+Ordinary Differential Equations and Linear Algebra,,211,MATH,,,3,F/S
+Multivariable Calculus ,,212,MATH,,,3,F/S
+Intro to Nanoengineering,,201,MSNE,,,3,F/S
+Wild Topics in Chemistry and Nanotechnology,,210,MSNE,,,1,F/S
+Materials Science,,301,MSNE,,,3,F/S
+Mechanics,,101,PHYS,,(PHYS 103),3,F/S
+Electricity and Magnetisim,,102,PHYS,,(PHYS 104),4,F/S
+Elementary Applied Statistics ,,280,STAT,,,4,F/S
+History of Numbers and Games of Chances,,281,STAT,,,3,F/S
+Intro to Statistics for Biosciences,,305,STAT,"(MATH 101, MATH 102)",,4,F/S
+Probability and Statistics,,310,STAT,(MATH 102),,3,F/S
+Probability and Statistics for Engineers,,312,STAT,(MATH 102),,3,F/S
+Uncertainty and Risk in Urban Infrastructures,,313,STAT,"(STAT 312, STAT 310, ECON 307, ECON 382, STAT 331, ELEC 331)",,3,F/S
+Classical Thermodynamics,,200,MECH,,,3,F/S
+Engineering Mechanics,,211,MECH,,,3,F/S
+Current Topics,,299,MECH,,,3,F/S
+Senior Design Junior Observers,,308,MECH,,,1,F/S
+Mechanics of Solids and Structures,,311,MECH,"(MECH 211, CEVE 211)",,3,F/S
+Mechanics and Sports,,314,MECH,"(PHYS 101, PHYS 111, PHYS 125, PHYS 141)",,3,F/S
+Junior Lab I,,331,MECH,,,1,F/S
+Junior Lab II,,332,MECH,(MECH 371),,1,F/S
+Industrial Process Lab,,340,MECH,,,1,F/S
+Modeling of Dynamic Systems,,343,MECH,"(MECH 211, CEVE 211),(MECH 200)",,4,F/S
+Fluid Mechanics I,,371,MECH,"(MECH 200), (MECH 211, CEVE 211), (MATH 212)",,3,F/S
+Acoustics,,373,MECH,,,3,F/S
+Intro to Mechanical Effects in Tissues,,380,MECH,"(MECH 211), (MECH 311, CEVE 300)",,3,F/S
+Intro to Biomedical Instrumentation and Measurement Techniques,,383,MECH,(ELEC 381),,3,F/S
+Advanced Mechanics of Materials,,400,MECH,"(MECH 211, CEVE 211), (MECH 311, CEVE 311)",,3,F/S
+Mechanical Design Applications,,401,MECH,"(MECH 311, CEVE 311)",,3,F/S
+Computer Aided Design,,403,MECH,,,3,F/S
+Mechanical Design Project,,404,MECH,,,1,F/S
+Mechanical Design Project,,404,MECH,,,2,F/S
+Mechanical Design Project,,404,MECH,,,3,F/S
+Mechanical Design Project,,404,MECH,,,4,F/S
+Capstone Design Project I,,407,MECH,,,4,F/S
+Capstone Design Project II,,408,MECH,,,3,F/S
+Dynamics and Control of Mechanical Systems ,,411,MECH,"(MECH 343, MECH 420)",,3,F/S
+Vibrations,,412,MECH,(MECH 343),,3,F/S
+Finite Element Analysis,,417,MECH,"(MATH 212, MATH 222),(CAAM 210, CAAM 211)",,3,F/S
+Fundamentals of Control Systems,,420,MECH,,,3,F/S
+Computational Structural Mechanics and FEM,,427,MECH,"(CEVE 311, MECH 311)",,3,F/S
+Senior Lab I,,431,MECH,,,1,F/S
+Electromechanical Devices and Systems,,435,MECH,"(ELEC 242, ELEC 243)",,3,F/S
+Algorithmic Robotics,,450,MECH,"(COMP 211, COMP 321), (COMP 215)",,4,F/S
+Computational Fluid Mechanics,,454,MECH,,,3,F/S
+Legal Themes in Engineering and Managing Practices,,456,MECH,,,3,F/S
+Application of Themodynamics,,471,MECH,"(MECH 200, MECH 481)",,3,F/S
+Thermal Systems Design ,,472,MECH,"(MECH 371, MECH 481)",,3,F/S
+Advanced Fluid Mechanics I,,473,MECH,,,3,F/S
+Advanced Computational Mechanics,,474,MECH,"(BIOE 454, CEVE 454, BIOE 554, CEVE 554, MECH 554)",,3,F/S
+Heat Transfer,,481,MECH,"(MECH 200, MECH 371)",,3,F/S
+Mechanics Discussion,,103,PHYS,,(PHYS 101),0,F/S
+E & M Discussion,,104,PHYS,,(PHYS 102),0,F/S
+Engineering Mechanics,,211,CEVE,"(PHYS 101, PHYS 111, PHYS 125, PHYS 141),(MATH 101),(MATH 102)",,3,F/S
+Principles of Program Design,,211,COMP,"(COMP 140, COMP 160)",,4,F/S
+Mechanics of Solids,,311,CEVE,,,3,F/S
+Fundamentals of Electrophysiology,,381,ELEC,,,3,F/S
+Mechanics (with Lab),,111,PHYS,,,3,F/S
+Probability and Statistics,,307,ECON,(MATH 102),,3,F/S
+Honors Chemistry I,,151,CHEM,(CHEM 153),,3,F/S
+Fundamentals of Electrical Engineering II,,242,ELEC,(ELEC 241),(ELEC 244),3,F/S
+Computational Fluid Mechanics,,454,BIOE,,,3,F/S
+Honors Calculus IV,,222,MATH,,,3,F/S
+Mechanics of Solid,,300,CEVE,"(MECH 211, CEVE 211)",,3,F/S
+Concepts in Physics I,,141,PHYS,,,3,F/S
+Computational Thinking,,140,COMP,,,4,F/S
+Introduction to Computer Game Creation,,160,COMP,,,4,F/S
+Honors Chemistry Laboratory I,,153,CHEM,(CHEM 151),,1,F/S
+Fundamentals of Electrical Engineering I,,241,ELEC,"(MATH 101),(MATH 102)",,4,F/S
+Fundamentals of Electrical Engineering II Lab,,244,ELEC,(ELEC 242),,1,F/S
+Concepts in Physics II,,142,PHYS,,,3,F/S
+General Physics (With Lab),,125,PHYS,,,4,F
+General Physics II (With Lab),,126,PHYS,,,4,S
+Probability & Statistics,,382,ECON,"(BUSI 305),(STAT 280), (ECON 201, ECON 211)",,3,F/S
+Electronic Measurement Systems,,243,ELEC,"(MATH 101),(MATH 102),(PHYS 102)",,4,F/S
+Intro to Engineering Computation Lab,,211,CAAM,(CAAM 210),,1,F/S
+Microeconomics I,,201,ECON,"(MATH 111, MATH 101)",,3,F/S
+Principles of Economics,,211,ECON,,,3,F/S
+Financial Accounting,,305,BUSI,,,3,F/S
+Organic Chemistry I,,211,CHEM,"(CHEM 122, CHEM 152)",,3,F/S
+Organic Chemistry Lab,,215,CHEM,(CHEM 211),,2,F/S
+Organic Chemistry II,,212,CHEM,(CHEM 211),,3,F/S
+Introduction to Partial Differential Equations,,381,MATH,,,3,F/S
+Electricity and Magnetism (with Lab),,112,PHYS,,,4,F/S
+Chemical Engineering Fundamentals,,301,CHBE,"(CHEM 122, CHEM 152)",(CHBE 303),3,F/S
+Computer Programming in Chemical Engineering,,303,CHBE,,(CHBE 301),1,F/S
+Computational Methods in Chemical Engineering,,305,CHBE,"(CHBE 301),(CHBE 303)",,3,F/S
+Fundamentals of Biomolecular Engineering,,310,CHBE,"(MATH 211),(CHBE 301)",,3,F/S
+Chemical Engineering Lab I,,343,CHBE,"(CHBE 390),(CHBE 401),(CHBE 411)",,3,F/S
+Chemical Kinetics and Reactor Design,,390,CHBE,"(CHBE 301),(CHBE 303),(CHBE 305),(MATH 211),(MATH 212, MATH 222)",,3,F/S
+Transport Phenomena I,,401,CHBE,"(CHBE 305),(MATH 211),(MATH 212, MATH 222), (PHYS 101, PHYS 111),(PHYS 102, PHYS 112)",,3,F/S
+Transport Phenomena II,,402,CHBE,"(CHBE 401),(CAAM 336, MATH 381)",,3,F/S
+Design Fundamentals,,403,CHBE,"(CHBE 390),(CHBE 402),(CHBE 412)",,4,F/S
+Product and Process Design,,404,CHBE,(CHBE 403),,4,F/S
+Thermodynamics I,,411,CHBE,"(CHBE 301),(CHBE 303)",,3,F/S
+Thermodynamics II,,412,CHBE,(CHBE 411),,3,F/S
+Chemical Engineering Lab II,,443,CHBE,"(CHBE 343),(CHBE 402),(CHBE 412)",,2,F/S
+Process Dynamics and Control,,470,CHBE,"(CHBE 390, CHBE 402, CHBE 412)",,3,F/S
+Applied Probability,,331,STAT,"(MATH 211),(MATH 212)",,3,F/S
+Honors Chemistry II,,152,CHEM,,(CHEM 154),3,F/S
+Honors Chemistry Laboratory II,,154,CHEM,"(CHEM 153),(CHEM 123)",(CHEM 152),1,F/S
+General Chemistry Lab I,,123,CHEM,,(CHEM 121),1,F/S

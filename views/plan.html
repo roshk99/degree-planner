@@ -4,19 +4,14 @@
 <div id="wrapper">
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-        <button class="btn btn-primary" id="save-classes">Save Classes</button>
-        <div id="notifications">
-            {% if messages | length == 0 %}
-            <div class="alert alert-success small">All prerequisites and corequisites fulfilled!</div>
-            {% endif %}
-            {% for message in messages %}
-            <div class="alert alert-danger small">{{message}}</div>
-            {% endfor %}
-        </div>
         <div class="page-section" id="classes-section">
             <div class="list-group" id="classesList">
             {% for course_dict in all_courses %}
+                {%  if course_dict['number'] == 'requisites' %}
+                <div class="placeholder list-group-item"><h5>Requisites: </h5></div>
+                {% elif course_dict['number'] != 1 %}
                 <div class="placeholder list-group-item"><h5>Need {{course_dict['number']}} of: </h5></div>
+                {% endif %}
                     {% for course in course_dict['courses'] %}
                     {% if course.fall and not course.spring %}
                     <div class="list-group-item fall-class" data-id="{{course.id}}">
@@ -27,7 +22,7 @@
                     {% endif %}
                         <div class="panel panel-default class-panel">
                             <div class="panel-heading">
-                                <h4 class="panel-title">
+                                <h5 class="panel-title">
                                     <span class="badge">{{course.credits}}</span>
                                         {{course.subject_code}} {{course.number}} -
                                         {% if course.fall and not course.spring %}
@@ -38,7 +33,7 @@
                                             F/S
                                         {% endif %}
                                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                                </h4>
+                                </h5>
                             </div> <!-- /.panel-heading -->
                             <div class="panel-body panel-collapsed">
                                 <h5>Course Name: {{course.name}}</h5>
@@ -74,7 +69,16 @@
                     </ul>
                 </div>
             </nav>
-            <div class="col-lg-10" id="schedule">
+            <div class="col-lg-12" id="schedule">
+                <button class="btn btn-primary" id="save-classes">Save Classes</button>
+                <div id="notifications">
+                    {% if messages | length == 0 %}
+                    <div class="alert alert-success small">All prerequisites and corequisites fulfilled!</div>
+                    {% endif %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger small">{{message}}</div>
+                    {% endfor %}
+                </div>
             {% for i in range(semester_num) %}
                 {% if i == 0 %}
                 <div class="page-section top-semester" id="semester{{i}}-section">
@@ -106,7 +110,7 @@
                     {% endif %}
                             <div class="panel panel-default class-panel">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">
+                                    <h5 class="panel-title">
                                         <span class="badge">{{course.credits}}</span>
                                             {{course.subject_code}} {{course.number}} -
                                             {% if course.fall and not course.spring %}
@@ -117,7 +121,7 @@
                                                 F/S
                                             {% endif %}
                                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                                    </h4>
+                                    </h5>
                                 </div> <!-- /.panel-heading -->
                                 <div class="panel-body panel-collapsed">
                                     <h5>Course Name: {{course.name}}</h5>

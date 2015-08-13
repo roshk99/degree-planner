@@ -69,6 +69,7 @@ def evaluate_requisites(courses):
             master_dict[course['id']] = i
 
     messages = []
+    missing_courses = []
     for course_id, semester_num in master_dict.items():
         requisites = models.requisite.get_requisites_for_course(course_id)
         for requisite in requisites:
@@ -83,8 +84,12 @@ def evaluate_requisites(courses):
             if not met and requisite['type'] == 'pre':
                 my_course = models.course.get_course(course_id).to_json()
                 messages.append(my_course['subject_code'] + ' ' + my_course['number'] + ' is missing prerequisites')
+                for course_option_id in course_options:
+                    missing_courses.append(models.course.get_course(course_option_id).to_json())
             if not met and requisite['type'] == 'co':
                 my_course = models.course.get_course(course_id).to_json()
                 messages.append(my_course['subject_code'] + ' ' + my_course['number'] + ' is missing corequisites')
+                for course_option_id in course_options:
+                    missing_courses.append(models.course.get_course(course_option_id).to_json())
 
-    return messages
+    return messages, missing_courses

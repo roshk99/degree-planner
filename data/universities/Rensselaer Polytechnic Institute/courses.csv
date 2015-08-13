@@ -1,0 +1,140 @@
+Intro to Chemical Engineering,,1010,CHME,,,1,F
+"Material, Energy, and Entropy Balances",,2010,CHME,,,4,F
+"Energy, Entropy, and Equilibrium",,2020,CHME,(CHME 2010),,4,S
+Readings in Chemical Engineering ,,2940,CHME,,,1,F/S
+Readings in Chemical Engineering ,,2940,CHME,,,2,F/S
+Readings in Chemical Engineering ,,2940,CHME,,,3,F/S
+Topics in Chemical Engineering,,2960,CHME,,,3,F/S
+Senior Project,,2960,CHME,,,1,F/S
+Senior Project,,2960,CHME,,,2,F/S
+Senior Project,,2980,CHME,,,3,F/S
+Transport Phenomena I,,4010,CHME,(MATH 2400),,4,F
+Transport Phenomena II,,4020,CHME,"(MATH 2400, CHME 4010)",,4,S
+Chemical Process Dynamics and Control,,4030,CHME,(MATH 2400),,4,S
+Chemical Engineering Separations,,4040,CHME,"(CHME 4010, CHME 4020, CHME 2020)",(CHME 2020),3,F
+Chemical Process Design,,4050,CHME,"(CHME 4040, CHME 4500)",,4,S
+Chemical Engineering Lab I,,4150,CHME,"(CHME 4010, CHME 4020, CHME 2020)",,3,F/S
+Chemical Engineering Lab II,,4160,CHME,"(CHME 4150, CHME 4040, CHME 4500)",,3,F/S
+Bioprocessing Lab Course,,4170,CHME,(CHME 4430),,3,S
+Chromatographic Separation Processes,,4400,CHME,,,3,S
+Intro to Biochemical Engineering,,4430,CHME,,,3,F
+Biomolecular Engineering,,4460,CHME,"(BIOL 1010, BIOL 2120),(CHME 2020, ENGR 2250)",,3,S
+Single Molecules Complex Fluid,,4480,CHME,(CHME 4020),(CHME 4020),3,S
+Chemical Reactor Design,,4500,CHME,"(CHME 2010, CHME 4010, CHME 4020)",,3,F
+Introduction to Semiconductor Processing,,4600,CHME,,,3,F
+Readings in Chemical Engineering,,4940,CHME,,,1,F/S
+Readings in Chemical Engineering,,4940,CHME,,,2,F/S
+Readings in Chemical Engineering,,4940,CHME,,,3,F/S
+Topics in Chemical Engineering,,4960,CHME,,,3,F/S
+Advanced Membrane Concepts,,6410,CHME,,,3,F
+Separation and Recovery Processes,,6420,CHME,,,3,S
+Biochemical Engineering,,6430,CHME,,,3,F
+Chromatographic Separations,,6440,CHME,,,3,S
+Biomolecular Engineering,,6460,CHME,"(BIOL 1010, BIOL 2120),(CHME 2020, ENGR 2250)",,3,S
+Downstream Processing in Biochemical Engineering,,6470,CHME,,,3,F
+Single Molecules Complex Fluid,,6480,CHME,(CHME 4020),(CHME 4020),3,S
+Advanced Transport Phenomena I,,6510,CHME,(CHME 4010),,3,S
+Advanced Transport Phenomena II,,6520,CHME,(CHME 6510),,3,F
+Convective Heat Transfer,,6540,CHME,,,3,S
+Chemical and Phase Equilibria,,6570,CHME,,,3,F
+Mathematical Methods in Chemical Engineering I,,6610,CHME,(MATH 2400),,3,F
+Mathematical Methods in Chemical Engineering II,,6620,CHME,(CHME 6610),,3,F
+Advanced Chemical Reactor Design,,6640,CHME,(CHME 4500),,3,S
+Advanced Process Control,,6650,CHME,(CHME 4030),,3,F/S
+Advanced Process Design,,6670,CHME,,,3,F/S
+Combustion,,6830,CHME,,,3,S
+An Introduction to Multiphase Flow and Heat Transfer I,,6840,CHME,,,3,F
+An Introduction to Multiphase Flow and Heat Transfer II,,6850,CHME,"(CHME 6840, MANE 6840)",,3,S
+Readings in Chemical Engineering,,6940,CHME,,,1,F/S
+Readings in Chemical Engineering,,6940,CHME,,,2,F/S
+Readings in Chemical Engineering,,6940,CHME,,,3,F/S
+Topics in Chemical Engineering,,6960,CHME,,,1,F/S
+Topics in Chemical Engineering,,6960,CHME,,,2,F/S
+Topics in Chemical Engineering,,6960,CHME,,,3,F/S
+Professional Project,,6970,CHME,,,,F/S
+Calculus I,,1010,MATH,,,4,F/S
+Calculus II,,1020,MATH,(MATH 1010),,4,F/S
+"Calculus for Architecture, Management, and HASS",,1500,MATH,,,4,F
+Mathematical Methods in Management and Economics,,1520,MATH,"(MATH 1010, MATH 1500)",,4,S
+Contemporary Mathematical Ideas in Society,,1620,MATH,"(MATH 1010, MATH 1500)",,4,S
+Art and Science in Mathematics I,,1900,MATH,,,1,F
+Art and Science in Mathematics II,,1910,MATH,,,1,S
+Multivariable Calculus and Matrix Algebra,,2010,MATH,(MATH 1020),,4,F/S
+Intro to Differential Equations,,2400,MATH,(MATH 1020),,4,F/S
+A Passion for Physics,,1010,PHYS,,,1,F
+General Physics,,1050,PHYS,,(MATH 1010),4,S
+Physics I,,1100,PHYS,,(MATH 1010),4,F/S
+Honors Physics I,,1150,PHYS,,(MATH 1010),4,F
+Physics II,,1200,PHYS,(PHYS 1100),(MATH 1020),4,F/S
+Intro to Computer Programming,,1010,CSCI,,,4,S
+Computer Science I,,1100,CSCI,,,4,F/S
+Beginning C Programming for Engineers,,1190,CSCI,,,1,F/S
+Intro to Biology,,1010,BIOL,,(BIOL 1015),4,F/S
+Chemistry I,,1100,CHEM,,,4,F
+Chemistry I with Advanced Lab,,1110,CHEM,,,4,F
+Chemistry II,,1200,CHEM,"(CHEM 1100, CHEM 1110)",,4,S
+Inorganic Chemistry I,,2030,CHEM,"(CHEM 1200, ENGR 1600)",,4,S
+Equilibrium Chemistry and Quantative Analysis,,2110,CHEM,(CHEM 1200),,3,F
+Experimental Chemistry I Analytical Techniques,,2120,CHEM,(CHEM 2110),,2,F
+Organic Chemistry Lab I,,2230,CHEM,(CHEM 2250),(CHEM 2250),1,F
+Organic Chemistry Lab II,,2240,CHEM,"(CHEM 2230, CHEM 2260)",,1,S
+Organic Chemistry I,,2250,CHEM,"(CHEM 1100, CHEM 1110)",,3,F
+Organic Chemistry II,,2260,CHEM,(CHEM 2250),,2,S
+Experimental Chemistry II Synthesis and Characterization ,,2290,CHEM,,(CHEM 2260),2,S
+Physical Chemistry for Life Sciences,,2440,CHEM,"(CHEM 1200, MATH 1010)",,4,F
+Intro to Geochemistry,,2540,CHEM,"(ERTH 1100, ERTH 1200)",,4,S
+Inorganic Chemistry II,,4010,CHEM,(CHEM 2030),,2,
+Experimental Chemistry III Inorganic and Physical Methods,,4020,CHEM,,"(CHEM 4010, CHEM 4410)",2,F
+Instrumental Methods of Analysis,,4110,CHEM,"(CHEM 2110, CHEM 2120)",,2,F
+Experimental Chemistry IV Physical and Instrumental Methods,,4120,CHEM,,"(CHEM 4110, CHEM 4420)",2,S
+Nuclear Magnetic Resoncance Spectroscopy,,4160,CHEM,,,3,S
+Medicinal Chemistry ,,4300,CHEM,(CHEM 2260),,4,F/S
+Bioorganic Mechanisms,,4310,CHEM,(CHEM 2260),,4,F
+Drug Discovery,,4330,CHEM,(CHEM 2260),,3,F
+Drug Discovery Lab,,4340,CHEM,(CHEM 4330),(CHEM 4330),1,F
+Macro Physical Chemistry,,4410,CHEM,,,4,F
+Micro Physical Chemistry ,,4420,CHEM,"(CHEM 4410, CHEM 2440, CHME 2020)",,3,S
+Theoretical Chemistry ,,4470,CHEM,(CHEM 4410),,3,F
+Modern Techniques in Chemistry ,,4530,CHEM,(CHEM 2250),,4,F/S
+Professional Development I,,1010,ENGR,,,1,F/S
+Intro to Engineering Analysis,,1100,ENGR,,,4,F/S
+Engineering Graphics and CAD,,1200,ENGR,,,1,F/S
+Engineering Processes,,1300,ENGR,,,1,F/S
+Materials Science for Engineers,,1600,ENGR,(CHEM 1100),,4,F/S
+Product Design and Innovation Design Studio II,,2020,ENGR,(ARCH 2200),,4,S
+Introduction to Engineering Design,,2050,ENGR,"(ENGR 1100, ENGR 1200)",(PHYS 1200),4,F/S
+Engineering Dynamics,,2090,ENGR,"(ENGR 1100, PHYS 1100)",(MATH 2400),4,F/S
+Thermal and Fluids Engineering I,,2250,ENGR,"(ENGR 1100, PHYS 1100)",(MATH 2400),4,F/S
+Electronic Instrumentation,,2300,ENGR,(PHYS 1200),(MATH 2400),4,F/S
+Embedded Control ,,2350,ENGR,"(CSCI 1010, CSCI 1100, CSCI 1190)",,4,F/S
+Strength of Materials,,2530,ENGR,(ENGR 1100),,4,F/S
+Modeling and Analysis of Uncertainty,,2600,ENGR,(MATH 1010),,3,F/S
+General Manufacturing Processes,,2710,ENGR,,,3,F/S
+Computer Aided Machining ,,2720,ENGR,,,3,F/S
+Engineering Project,Can be 1-3 Credits,2940,ENGR,,,3,F/S
+Topics in Engineering ,Can be 1-3 Credits,2960,ENGR,,,3,F/S
+Professional Development III,,4010,ENGR,,,1,F/S
+Intro to Game Design,,2520,COGS,,,4,F
+Game Development,,4520,COGS,"(COGS 2520, CSCI 2300)",,4,S
+General Psychology,,1200,PSYC,,,4,F/S
+Critical Thinking,,2100,PSYC,,,4,S
+Intro to Cognitive Science,,2120,PSYC,,,4,S
+Human Factors in Design ,,2220,PSYC,(PSYC 1200),,4,F/S
+Moral Development,,2600,PSYC,,,4,S
+Social Psychology,,2730,PSYC,(PSYC 1200),,4,F/S
+Intro to Sports Psychology,,2800,PSYC,(PSYC 1200),,4,F
+Motivation and Performance,,4110,PSYC,(PSYC 1200),,4,F/S
+Human Factors Seminar,,4160,PSYC,(PSYC 2220),,4,F/S
+Professional Development II Leadership Theories,,4170,PSYC,(ENGR 2050),,2,F/S
+Introduction to Biology Laboratory,,1015,BIOL,,(BIOL 1010),1,F/S
+Design Studio,,2200,ARCH,,,4,F/S
+Introduction to Cell and Molecular Biology,,2120,BIOL,,,4,S
+An Introduction to Multiphase Flow and Heat Transfer I,,6840,MANE,,,3,F
+Introduction to Algorithms,,2300,CSCI,"(CSCI 1200, MATH 1010, CSCI 2200)",,4,F/S
+Geology I Earths Interior,,1100,ERTH,,,3,F
+Data Structures,,1200,CSCI,(CSCI 1100),,4,F/S
+Foundations of Computer Science,MATH 1020 is strongly recommended as a prerequisite,2200,CSCI,"(CSCI 1200),(MATH 1010, MATH 1500)",,4,F/S
+Geology II Earths Surface,,1200,ERTH,,,3,S
+Computer Science I,,1100,CSCI,,,4,F/S
+Organic Chemistry II,,2260,CHME,,,3,S
+Professional Development II,,4840,STSS,(ENGR 1010),,2,F/S

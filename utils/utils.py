@@ -4,6 +4,9 @@ import models.major
 import models.requirement
 import models.university
 
+import re
+import logging
+
 def requisites_as_text(course):
     requisites = models.requisite.get_requisites_for_course(course['id'])
     prereqs = []
@@ -70,3 +73,20 @@ def add_test_data():
     requisite1 = models.requisite.create_requisite({'type': 'pre', 'requisites': [course1['id']]}, course3['id']).to_json()
     requisite2 = models.requisite.create_requisite({'type': 'co', 'requisites': [course2['id']]}, course3['id']).to_json()
     requisite3 = models.requisite.create_requisite({'type': 'co', 'requisites': [course3['id']]}, course2['id']).to_json()
+
+
+def parse_requisite_str(course_id, my_type, req_str, university_id):
+    groups = re.findall('\((.*?)\)', req_str)
+    for group in groups:
+        req_arr = []
+        arr = group.split(', ')
+        for course_name in arr:
+            subject_code, number = course_name.split(' ')
+            course = models.course.find_course(subject_code, number, university_id)
+            if not course:
+                logging.info('Could not find the course %s %s for university id %s', subject_code, number, university_id)
+                return
+            req_arr.append(course['id'])
+
+        models.requisite.create_requisite({'type': my_type, 'requisites': req_arr}, course_id)
+

@@ -35,14 +35,13 @@ class MainHandler(webapp2.RequestHandler):
             all_my_courses.extend(courses)
             my_courses[int(semester['number'])] = courses
         majors = user.get_majors()
-        logging.info("My Courses: %s", my_courses)
+        logging.info("My Courses: %s", len(all_my_courses))
 
         requirements = []
         for major_id in majors:
             requirements.extend(models.requirement.get_requirements_for_major(major_id))
 
         requirements_eval = utils.rules.evaluate_requirements(my_courses, requirements)
-        logging.info('Requirements Eval: %s', requirements_eval)
 
         all_courses = []
         course_master = []
@@ -55,9 +54,17 @@ class MainHandler(webapp2.RequestHandler):
                     course_master.append(course)
                     courses.append(course)
             all_courses.append({'number': requirement['number'], 'courses': courses})
-        logging.info('All courses: %s', all_courses)
 
-        messages = utils.rules.evaluate_requisites(my_courses)
+        messages, requisite_courses = utils.rules.evaluate_requisites(my_courses)
+
+        missing_courses = []
+        for requisite_course in requisite_courses:
+            if requisite_course not in course_master:
+                missing_courses.append(requisite_course)
+
+        if len(missing_courses) > 0:
+            all_courses.append({'number': 'requisites', 'courses': missing_courses})
+        logging.info('All courses: %s', len(course_master) + len(missing_courses))
 
         view = pages.render_view(PLAN_URI, {'semester_num': SEMESTER_NUM,
                                             'my_courses': my_courses,

@@ -46,5 +46,12 @@ def create_university(university):
         return None
 
 
+def get_university_by_name(name):
+    query = University.gql('WHERE name = :1', name)
+    for university in query:
+        return university.to_json()
+    return None
+
+
 def delete_university(university):
     university.delete()

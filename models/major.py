@@ -51,5 +51,12 @@ def create_major(major, university_id):
         return None
 
 
+def get_major_by_name(major_name, university_id):
+    query = Major.gql('WHERE name = :1 AND university = :2', major_name, university_id)
+    for major in query:
+        return major.to_json()
+    return None
+
+
 def delete_major(major):
     major.delete()

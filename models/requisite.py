@@ -57,5 +57,12 @@ def create_requisite(requisite, course_id):
         return None
 
 
+def delete_requisites_for_course(course_id):
+    requisites = get_requisites_for_course(course_id)
+    for req in requisites:
+        requisite = get_requisite(req['id'])
+        delete_requisite(requisite)
+
+
 def delete_requisite(requisite):
     requisite.delete()

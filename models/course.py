@@ -85,5 +85,30 @@ def create_course(course):
         return None
 
 
+def update_course(course):
+    result = create_course(course)
+    if not result:
+        # Update the existing course information
+        query = Course.gql('WHERE subject_code = :1 AND number = :2 AND university = :3',
+                           course['subject_code'], course['number'], course['university'])
+        for my_course in query:
+            my_course.name = course['name']
+            my_course.description = course['description']
+            my_course.credits = course['credits']
+            my_course.fall = course['fall']
+            my_course.spring = course['spring']
+            my_course.put()
+            return my_course.to_json()
+    else:
+        return result.to_json()
+
+
+def find_course(subject_code, number, university_id):
+    query = Course.gql('WHERE subject_code = :1 AND number = :2 AND university = :3',
+                           subject_code, number, university_id)
+    for course in query:
+        return course.to_json()
+
+
 def delete_course(course):
     course.delete()
