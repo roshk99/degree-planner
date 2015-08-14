@@ -111,3 +111,54 @@ Applied Probability,,331,STAT,"(MATH 211),(MATH 212)",,3,F/S
 Honors Chemistry II,,152,CHEM,,(CHEM 154),3,F/S
 Honors Chemistry Laboratory II,,154,CHEM,"(CHEM 153),(CHEM 123)",(CHEM 152),1,F/S
 General Chemistry Lab I,,123,CHEM,,(CHEM 121),1,F/S
+Computational Fluid Mechanics,,454,CEVE,,,3,F/S
+Applied Probability,,331,ELEC,"(MATH 211), (MATH 212)",,3,F/S
+Intro to Computer Systems,,321,COMP,"(ELEC 220), (COMP 211, COMP 215)",,4,F/S
+Organic Laboratory for Chemical Engineers,,217,CHEM,(CHEM 211),,1,F/S
+Physical Chemistry,,310,CHEM," (CHEM 122, CHEM 152),(MATH 211, MATH 221)",,3,F/S
+Fundamentals of Computer Engineering,,220,ELEC,,,4,F/S
+Introduction to Program Design,,215,COMP,(COMP 182),,4,F/S
+Honors Calculus III,,221,MATH,,,3,F/S
+Algorithmic Thinking,,182,COMP,"(COMP 140, COMP 160)",,4,S
+Introduction to Aerodynamics,,594,MECH,(MECH 371),,3,F/S
+Mech Properties of Materials,,402,MSNE,(MATH 211),,3,F/S
+Computational Fluid Structure Interaction,,555,MECH,"(MECH 454, BIOE 454, CEVE 454),(MECH 554, BIOE 554, CEVE 554)",,3,F/S
+Design of Mechatronic Systems,,488,MECH,"(MECH 343),(ELEC 241)",,3,F/S
+Computational Fluid Mechanics,,554,MECH,"(MECH 454, BIOE 454, CEVE 454),(MECH 554, BIOE 554, CEVE 554)",,3,F/S
+Computational Fluid Mechanics,,554,BIOE,"(MECH 454, BIOE 454, CEVE 454),(MECH 554, BIOE 554, CEVE 554)",,3,F/S
+Computational Fluid Mechanics,,554,CEVE,"(MECH 454, BIOE 454, CEVE 454),(MECH 554, BIOE 554, CEVE 554)",,3,F/S
+Introduction to Robotics,,498,MECH,,,3,F/S
+BIOE 300 Level,,3XX,BIOE,,,3,F/S
+BIOE 400 Level,,4XX,BIOE,,,3,F/S
+BIOE 500 Level,,5XX,BIOE,,,3,F/S
+BIOE 600 Level,,6XX,BIOE,,,3,F/S
+CHBE 300 Level,,3XX,CHBE,,,3,F/S
+CHBE 400 Level,,4XX,CHBE,,,3,F/S
+CHBE 500 Level,,5XX,CHBE,,,3,F/S
+CHBE 600 Level,,6XX,CHBE,,,3,F/S
+CEVE 300 Level,,3XX,CEVE,,,3,F/S
+CEVE 400 Level,,4XX,CEVE,,,3,F/S
+CEVE 500 Level,,5XX,CEVE,,,3,F/S
+CEVE 600 Level,,6XX,CEVE,,,3,F/S
+COMP 300 Level,,3XX,COMP,,,3,F/S
+COMP 400 Level,,4XX,COMP,,,3,F/S
+COMP 500 Level,,5XX,COMP,,,3,F/S
+COMP 600 Level,,6XX,COMP,,,3,F/S
+ELEC 300 Level,,3XX,ELEC,,,3,F/S
+ELEC 400 Level,,4XX,ELEC,,,3,F/S
+ELEC 500 Level,,5XX,ELEC,,,3,F/S
+ELEC 600 Level,,6XX,ELEC,,,3,F/S
+MSNE 300 Level,,3XX,MSNE,,,3,F/S
+MSNE 400 Level,,4XX,MSNE,,,3,F/S
+MSNE 500 Level,,5XX,MSNE,,,3,F/S
+MSNE 600 Level,,6XX,MSNE,,,3,F/S
+MECH 300 Level,,3XX,MECH,,,3,F/S
+MECH 400 Level,,4XX,MECH,,,3,F/S
+MECH 500 Level,,5XX,MECH,,,3,F/S
+MECH 600 Level,,6XX,MECH,,,3,F/S
+STAT 300 Level,,3XX,STAT,,,3,F/S
+STAT 400 Level,,4XX,STAT,,,3,F/S
+STAT 500 Level,,5XX,STAT,,,3,F/S
+STAT 600 Level,,6XX,STAT,,,3,F/S
+Analytical Chemistry,,330,CHEM,(CHEM 211),,3,F/S
+Inorganic Chemistry,,360,CHEM,,,3,F/S

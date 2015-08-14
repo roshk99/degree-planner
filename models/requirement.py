@@ -59,7 +59,9 @@ def create_requirement(requirement, major_id):
 def delete_requirements_for_major(major_id):
     requirements = get_requirements_for_major(major_id)
     for requirement in requirements:
-        delete_requirement(get_requirement(requirement['id']))
+        my_requirement = get_requirement(requirement['id'])
+        if my_requirement:
+            delete_requirement(my_requirement)
 
 
 def delete_requirement(requirement):

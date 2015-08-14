@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Update Data from Spreadsheets</h2>
+        </div>
+        <div class="panel-body">
+            <p>By clicking this button, you will update the course and requirements data.</p>
+            <p>This will take a long time. Wait for the confirmation that it has loaded</p>
+            <button class="btn btn-success" id="update-data">Update Data</button>
+            <h3 id="progress"></h3>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#update-data').on('click', function(e) {
+        e.preventDefault();
+        var confirm = window.confirm("Are you sure you want to update the data?");
+        if (confirm) {
+            $('#progress').html('Loading Data in Progress...');
+            return $.ajax({
+                url: '/loaddata',
+                type: 'POST',
+                success: function() {
+                    $('#progress').html('');
+                    alert('Loading Data Completed!');
+                }
+            });
+        }
+    });
+</script>

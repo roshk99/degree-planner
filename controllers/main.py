@@ -3,7 +3,7 @@ import pages
 from config import *
 
 import models.university
-import utils.utils
+import authentication.auth
 import utils.load_data
 
 
@@ -22,3 +22,22 @@ class ErrorHandler(webapp2.RequestHandler):
     def get(self):
         view = pages.render_view(ERROR_URI)
         pages.render_page(self, view)
+
+
+class LoadDataHandler(webapp2.RequestHandler):
+    def get(self):
+        user = authentication.auth.get_logged_in_user()
+        if not user:
+            authentication.auth.redirect_to_login(self)
+
+        view = pages.render_view(LOAD_DATA_URI)
+        pages.render_page(self, view)
+
+    def post(self):
+        user = authentication.auth.get_logged_in_user()
+        if not user:
+            authentication.auth.redirect_to_login(self)
+
+        utils.load_data.load_data()
+
+        self.response.out.write('Success!')

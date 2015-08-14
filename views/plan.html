@@ -6,24 +6,117 @@
     <div id="sidebar-wrapper">
         <div class="page-section" id="classes-section">
             <div class="list-group" id="classesList">
-            {% for course_dict in all_courses %}
-                {%  if course_dict['number'] == 'requisites' %}
-                <div class="placeholder list-group-item"><h5>Requisites: </h5></div>
-                {% elif course_dict['number'] != 1 %}
-                <div class="placeholder list-group-item"><h5>Need {{course_dict['number']}} of: </h5></div>
-                {% endif %}
-                    {% for course in course_dict['courses'] %}
-                    {% if course.fall and not course.spring %}
-                    <div class="list-group-item fall-class" data-id="{{course.id}}">
-                    {% elif not course.fall and course.spring %}
-                    <div class="list-group-item spring-class" data-id="{{course.id}}">
-                    {% else %}
-                    <div class="list-group-item fall-class spring-class" data-id="{{course.id}}">
+                {% for course_dict in all_courses %}
+                    {%  if course_dict['number'] == 'requisites' %}
+                        <div class="placeholder list-group-item"><h5>Requisites: </h5></div>
+                    {% elif course_dict['courses'] | length != 1 %}
+                        <div class="placeholder list-group-item"><h5>Need {{course_dict['number']}} of: </h5></div>
                     {% endif %}
-                        <div class="panel panel-default class-panel">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">
-                                    <span class="badge">{{course.credits}}</span>
+                    {% for course in course_dict['courses'] %}
+                        {% if course.fall and not course.spring %}
+                            <div class="list-group-item fall-class" data-id="{{course.id}}">
+                        {% elif not course.fall and course.spring %}
+                            <div class="list-group-item spring-class" data-id="{{course.id}}">
+                        {% else %}
+                            <div class="list-group-item fall-class spring-class" data-id="{{course.id}}">
+                        {% endif %}
+                    <div class="panel panel-default class-panel">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">
+                                <span class="badge">{{course.credits}}</span>
+                                {{course.subject_code}} {{course.number}} -
+                                {% if course.fall and not course.spring %}
+                                    F
+                                {% elif not course.fall and course.spring %}
+                                    S
+                                {% else %}
+                                    F/S
+                                {% endif %}
+                                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
+                            </h5>
+                        </div> <!-- /.panel-heading -->
+                        <div class="panel-body panel-collapsed">
+                            <h5>Course Name: {{course.name}}</h5>
+                            {% if course.description and course.description | length > 0 %}
+                                <p>Description: {{course.description}}</p>
+                            {% endif %}
+                            {% if course.prerequisites | length > 0 %}
+                                <p>Prerequisites: {{course.prerequisites}}</p>
+                            {% endif %}
+                            {% if course.corequisites | length > 0 %}
+                                <p>Corequisites: {{course.corequisites}}</p>
+                            {% endif %}
+                        </div> <!-- /.panel-body -->
+                    </div> <!-- /.panel-default -->
+                    </div> <!-- /.list-group-item -->
+                    {% endfor %}
+                    {%  if course_dict['number'] == 'requisites' %}
+                        <div class="placeholder list-group-item"><h5>End of Requisites </h5></div>
+                    {% elif course_dict['courses'] | length != 1 %}
+                        <div class="placeholder list-group-item"><h5>End of Requirement Block</h5></div>
+                    {% endif %}
+                {% endfor %}
+                </div> <!-- /#classesList -->
+                </div> <!-- /#classes-section -->
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <nav class="navbar" role="navigation">
+                        <div id="main-nav" class="collapse navbar-collapse navbar-fixed-top">
+                            <ul class="nav nav-pills" role="tablist">
+                                {% for i in range(semester_num) %}
+                                    <li><a href="#" class="scroll-link small" data-id="semester{{i}}-section">Semester {{i}}</a></li>
+                                {% endfor %}
+                                <li><a class="scroll-link small" href="#menu-toggle" id="menu-toggle">Toggle Classes Pane</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="col-lg-12" id="schedule">
+                        <button class="btn btn-primary" id="save-classes">Save Classes</button>
+                        <div id="notifications">
+                            {% if messages | length == 0 %}
+                                <div class="alert alert-success small">All prerequisites and corequisites fulfilled!</div>
+                            {% endif %}
+                            {% for message in messages %}
+                                <div class="alert alert-danger small">{{message}}</div>
+                            {% endfor %}
+                        </div>
+                        {% for i in range(semester_num) %}
+                            {% if i == 0 %}
+                                <div class="page-section top-semester" id="semester{{i}}-section">
+                            {% elif i % 2 == 1 %}
+                                <div class="page-section left-semester" id="semester{{i}}-section">
+                            {% else %}
+                                <div class="page-section right-semester" id="semester{{i}}-section">
+                            {% endif %}
+                            <div class="container semester-title">
+                                <h3>Semester {{i}} Schedule </h3>
+                                <h4>Total Credits: <span class="text-success credits">0</span></h4>
+                            </div> <!-- /.semester-title -->
+
+                            {% if i == 0 %}
+                                <div class="list-group semester-list fall-semester spring-semester" id="semester{{i}}-list">
+                            {% elif i % 2 == 1 %}
+                                <div class="list-group semester-list fall-semester" id="semester{{i}}-list">
+                            {% else %}
+                                <div class="list-group semester-list spring-semester" id="semester{{i}}-list">
+                            {% endif %}
+
+                            {% for course in my_courses[i] %}
+                                {% if course.fall and not course.spring %}
+                                    <div class="list-group-item fall-class" data-id="{{course.id}}">
+                                {% elif not course.fall and course.spring %}
+                                    <div class="list-group-item spring-class" data-id="{{course.id}}">
+                                {% else %}
+                                    <div class="list-group-item fall-class spring-class" data-id="{{course.id}}">
+                                {% endif %}
+                            <div class="panel panel-default class-panel">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+                                        <span class="badge">{{course.credits}}</span>
                                         {{course.subject_code}} {{course.number}} -
                                         {% if course.fall and not course.spring %}
                                             F
@@ -32,126 +125,38 @@
                                         {% else %}
                                             F/S
                                         {% endif %}
-                                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                                </h5>
-                            </div> <!-- /.panel-heading -->
-                            <div class="panel-body panel-collapsed">
-                                <h5>Course Name: {{course.name}}</h5>
-                                {% if course.description and course.description | length > 0 %}
-                                <p>Description: {{course.description}}</p>
-                                {% endif %}
-                                {% if course.prerequisites | length > 0 %}
-                                <p>Prerequisites: {{course.prerequisites}}</p>
-                                {% endif %}
-                                {% if course.corequisites | length > 0 %}
-                                <p>Corequisites: {{course.corequisites}}</p>
-                                {% endif %}
-                            </div> <!-- /.panel-body -->
-                        </div> <!-- /.panel-default -->
-                    </div> <!-- /.list-group-item -->
-                    {% endfor %}
-                {% endfor %}
-            </div> <!-- /#classesList -->
-        </div> <!-- /#classes-section -->
-    </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <nav class="navbar" role="navigation">
-                <div id="main-nav" class="collapse navbar-collapse navbar-fixed-top">
-                    <ul class="nav nav-pills" role="tablist">
-                        {% for i in range(semester_num) %}
-                        <li><a href="#" class="scroll-link small" data-id="semester{{i}}-section">Semester {{i}}</a></li>
-                        {% endfor %}
-                        <li><a class="scroll-link small" href="#menu-toggle" id="menu-toggle">Toggle Classes Pane</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="col-lg-12" id="schedule">
-                <button class="btn btn-primary" id="save-classes">Save Classes</button>
-                <div id="notifications">
-                    {% if messages | length == 0 %}
-                    <div class="alert alert-success small">All prerequisites and corequisites fulfilled!</div>
-                    {% endif %}
-                    {% for message in messages %}
-                    <div class="alert alert-danger small">{{message}}</div>
-                    {% endfor %}
-                </div>
-            {% for i in range(semester_num) %}
-                {% if i == 0 %}
-                <div class="page-section top-semester" id="semester{{i}}-section">
-                {% elif i % 2 == 1 %}
-                <div class="page-section left-semester" id="semester{{i}}-section">
-                {% else %}
-                <div class="page-section right-semester" id="semester{{i}}-section">
-                {% endif %}
-                    <div class="container semester-title">
-                        <h3>Semester {{i}} Schedule </h3>
-                        <h4>Total Credits: <span class="text-success credits">0</span></h4>
-                    </div> <!-- /.semester-title -->
-
-                    {% if i == 0 %}
-                    <div class="list-group semester-list fall-semester spring-semester" id="semester{{i}}-list">
-                    {% elif i % 2 == 1 %}
-                    <div class="list-group semester-list fall-semester" id="semester{{i}}-list">
-                    {% else %}
-                    <div class="list-group semester-list spring-semester" id="semester{{i}}-list">
-                    {% endif %}
-
-                    {% for course in my_courses[i] %}
-                    {% if course.fall and not course.spring %}
-                        <div class="list-group-item fall-class" data-id="{{course.id}}">
-                    {% elif not course.fall and course.spring %}
-                        <div class="list-group-item spring-class" data-id="{{course.id}}">
-                    {% else %}
-                        <div class="list-group-item fall-class spring-class" data-id="{{course.id}}">
-                    {% endif %}
-                            <div class="panel panel-default class-panel">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">
-                                        <span class="badge">{{course.credits}}</span>
-                                            {{course.subject_code}} {{course.number}} -
-                                            {% if course.fall and not course.spring %}
-                                                F
-                                            {% elif not course.fall and course.spring %}
-                                                S
-                                            {% else %}
-                                                F/S
-                                            {% endif %}
                                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-down"></i></span>
                                     </h5>
                                 </div> <!-- /.panel-heading -->
                                 <div class="panel-body panel-collapsed">
                                     <h5>Course Name: {{course.name}}</h5>
                                     {% if course.description and course.description | length > 0 %}
-                                    <p>Description: {{course.description}}</p>
+                                        <p>Description: {{course.description}}</p>
                                     {% endif %}
                                     {% if course.prerequisites | length > 0 %}
-                                    <p>Prerequisites: {{course.prerequisites}}</p>
+                                        <p>Prerequisites: {{course.prerequisites}}</p>
                                     {% endif %}
                                     {% if course.corequisites | length > 0 %}
-                                    <p>Corequisites: {{course.corequisites}}</p>
+                                        <p>Corequisites: {{course.corequisites}}</p>
                                     {% endif %}
                                 </div> <!-- /.panel-body -->
                             </div> <!-- /.panel-default -->
-                        </div> <!-- /.list-group-item -->
-                    {% endfor %}
-                    </div> <!-- /.semester-list -->
-                </div> <!-- /.page-section top or right or left semester -->
-                {% endfor %}
-            </div> <!-- /#schedule -->
-        </div> <!-- /.container-fluid -->
-    </div> <!-- /#page-content-wrapper -->
-</div> <!-- /#wrapper -->
+                            </div> <!-- /.list-group-item -->
+                            {% endfor %}
+                        </div> <!-- /.semester-list -->
+                        </div> <!-- /.page-section top or right or left semester -->
+                        {% endfor %}
+                        </div> <!-- /#schedule -->
+                        </div> <!-- /.container-fluid -->
+                        </div> <!-- /#page-content-wrapper -->
+                        </div> <!-- /#wrapper -->
 
-<!-- Menu Toggle Script -->
-<script>
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});
-</script>
+                        <!-- Menu Toggle Script -->
+                        <script>
+                            $("#menu-toggle").click(function(e) {
+                                e.preventDefault();
+                                $("#wrapper").toggleClass("toggled");
+                            });
+                        </script>
 
-<script src="/static/js/plan.js"></script>
+                        <script src="/static/js/plan.js"></script>

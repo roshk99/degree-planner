@@ -30,6 +30,7 @@ app = webapp2.WSGIApplication([
     (CLEAR_MAJORS_URI, dashboard.ClearMajorsHandler),
     (DELETE_ACCOUNT_URI, auth.DeleteAccountHandler),
     (ERROR_URI, main.ErrorHandler),
+    (LOAD_DATA_URI, main.LoadDataHandler),
     ('/cleanupsessions', cleanupsessions.CleanupSessionsHandler),
     ('/', main.MainHandler)
 ], debug=DEBUG)
