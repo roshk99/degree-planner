@@ -1,0 +1,80 @@
+.list-group-item {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    margin: 1px;
+    padding: 0;
+    vertical-align: top;
+    float: left;
+}
+
+.class-panel {
+    margin: 0;
+}
+
+#schedule {
+    min-height: 400px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.semester-title {
+    display:table-row;
+    width: 100%;
+}
+
+.semester-list {
+    border: solid black 2px;
+    width: 100%;
+    display: table;
+    min-height: 300px;
+}
+
+.top-semester {
+    min-height: 300px;
+    width: 100%;
+    float: left;
+    display:table;
+    padding: 5px;
+}
+
+.left-semester{
+    min-height: 400px;
+    width: 50%;
+    float: left;
+    display:table;
+    padding: 5px;
+}
+
+.right-semester {
+    min-height: 400px;
+    width: 50%;
+    float: right;
+    display:table;
+    padding: 5px;
+}
+
+#classesList {
+    min-height: 400px;
+    width: 100%;
+    border: 2px solid;
+    display: table;
+    height: 100%;
+}
+
+#main-nav {
+    top: 60px;
+    background-color: white;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.panel-heading {
+    cursor: move;
+}
+
+.alert {
+    margin: 5px;
+}

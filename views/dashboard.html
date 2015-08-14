@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="span8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" align="center">My Plan</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <td colspan="2">
+                                <h4>Semester 0</h4>
+                                <ul class="list-group">
+                                    {% for course in my_courses[0] %}
+                                        <li class="list-group-item">{{ course }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            {% for i in range(1, my_courses | length) %}
+                                {% if i % 2 == 1 %}
+                                    <tr>
+                                        <td>
+                                            <h4>Semester {{ i }}</h4>
+                                            <ul class="list-group">
+                                                {% for course in my_courses[i] %}
+                                                    <li class="list-group-item">{{ course }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                        {% else %}
+                                        <td>
+                                            <h4>Semester {{ i }}</h4>
+                                            <ul class="list-group">
+                                                {% for course in my_courses[i] %}
+                                                    <li class="list-group-item">{{ course }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div id="account-info">
+                <h4>Welcome {{ first_name }} {{ last_name }}!</h4>
+                <h5>Email: {{ email }}</h5>
+                <h5>University: {{ my_university }}</h5>
+                <h5>Selected Major(s): {{ my_majors }}</h5>
+            </div>
+            <div id="account-actions">
+                <div id="add-majors" class="panel">
+                    <form role="form" class="form">
+                        <div class="form-group">
+                            <label for="input-add-majors" class="control-label">Add A Major:</label>
+                            <select id="input-add-majors" class="form-control">
+                                <option value="Select a Major" disabled selected>--Select a Major--</option>
+                                {% for major in all_majors %}
+                                    <option value="{{ major.id }}">{{ major.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button id="add-majors-button" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div id="clear-majors" class="panel">
+                    <p>To remove a major or majors that you have already selected, you have to clear out ALL of
+                        your currently selected majors</p>
+                    <p>This will delete ALL the classes in your plan</p>
+                    <button class="btn btn-danger" id="clear-majors-button">Clear all my selected majors</button>
+                </div>
+                <div class="panel">
+                    <p>I would like to delete my account and all data associated with it.</p>
+                    <button class="btn" id="delete-account-button">Delete my Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/dashboard.js"></script>
